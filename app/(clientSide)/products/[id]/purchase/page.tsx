@@ -14,7 +14,7 @@ interface PageProps {
     params: Params; // Ensure that params is typed correctly
 }
 
-export const PurchasePage: React.FC<PageProps> = async ({ params }) => {
+const PurchasePage: React.FC<PageProps> = async ({ params }) => {
     const { id } = params
     const product = await db.product.findUnique({ where: { id } })
     if (product == null) return notFound()
@@ -32,3 +32,4 @@ export const PurchasePage: React.FC<PageProps> = async ({ params }) => {
         <CheckoutForm product={product} clientSecret={paymentIntent.client_secret} />
     )
 }
+export default PurchasePage
