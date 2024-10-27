@@ -51,7 +51,7 @@ interface SubmitButtonProps {
     pending: boolean;
 }
 
-export function SubmitButton({ pending }: SubmitButtonProps) {
+function SubmitButton({ pending }: SubmitButtonProps) {
     return (
         <Button className='w-full' size='lg' type='submit' disabled={pending}>
             {pending ? 'Sending...' : 'Send'}
