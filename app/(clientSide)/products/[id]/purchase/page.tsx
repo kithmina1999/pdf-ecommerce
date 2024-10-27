@@ -6,7 +6,13 @@ import { CheckoutForm } from './_components/CheckoutForm'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string)
 
-export default async function page({ params }: { params: { id: string } }) {
+interface PageProps {
+    params: {
+      id: string;
+    };
+  }
+
+export default async function page({ params }:PageProps) {
     const { id } =  params
     const product = await db.product.findUnique({ where: { id } })
     if (product == null) return notFound()
