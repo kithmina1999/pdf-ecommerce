@@ -15,7 +15,7 @@ type Params= {
 }
 
 const PurchasePage: React.FC<PageProps> = async ({ params }) => {
-    const { id } = params
+    const { id } = await params
     const product = await db.product.findUnique({ where: { id } })
     if (product == null) return notFound()
 
