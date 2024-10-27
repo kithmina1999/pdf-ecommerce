@@ -14,7 +14,7 @@ interface PageProps {
     params: Params; // Ensure that params is typed correctly
 }
 
-export const Page: React.FC<PageProps> = async ({ params }) => {
+export const PurchasePage: React.FC<PageProps> = async ({ params }) => {
     const { id } = params
     const product = await db.product.findUnique({ where: { id } })
     if (product == null) return notFound()
