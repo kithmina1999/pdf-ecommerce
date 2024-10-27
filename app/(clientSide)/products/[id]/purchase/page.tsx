@@ -6,11 +6,11 @@ import { CheckoutForm } from './_components/CheckoutForm'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string)
 
-interface Params {
+type Params= {
     id: string;
 }
 
-interface PageProps {
+ type PageProps = {
     params: Params; // Ensure that params is typed correctly
 }
 
